@@ -1,0 +1,6 @@
+
+git+https://github.com/asimov-academy/Asimov_TV_connector.git
+streamlit
+pandas
+plotly
+pandas_market_calendars
