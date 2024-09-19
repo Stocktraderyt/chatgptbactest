@@ -164,7 +164,7 @@ def find_patterns(ticker, stock_data,stock_data_htf, interval, max_base_candles,
                             
                             if base_candles_found == base_candles_count:
                                 if ( 
-                                    legin_candle_range >= 1.5 * actual_base_candle_range and
+                                    legin_candle_range >= 2 * actual_base_candle_range and
                                     first_legout_candle_range_for_one_two_ka_four >= 2 * legin_candle_range and 
                                     
                                     stock_data['Low'].iloc[i] >= stock_data['Low'].iloc[legin_candle_index]):
@@ -193,7 +193,7 @@ def find_patterns(ticker, stock_data,stock_data_htf, interval, max_base_candles,
                                     if last_legout_high_value is not None:
                                         actual_legout_candle_range = last_legout_high_value - stock_data['Close'].iloc[i - 1]
 
-                                        if (legin_candle_range >= 1.5 * actual_base_candle_range and 
+                                        if (legin_candle_range >= 2 * actual_base_candle_range and 
                                             actual_legout_candle_range >= 2 * legin_candle_range and
                                             stock_data['Low'].iloc[i] >= stock_data['Low'].iloc[legin_candle_index]):
                 
@@ -340,7 +340,7 @@ def find_patterns(ticker, stock_data,stock_data_htf, interval, max_base_candles,
 
    
                             if base_candles_found == base_candles_count:
-                                if (legin_candle_range >= 1.5 * actual_base_candle_range and
+                                if (legin_candle_range >= 2 * actual_base_candle_range and
                                     first_legout_candle_range_for_one_two_ka_four >= 2 * legin_candle_range and 
                                     
                                     stock_data['High'].iloc[i] <= stock_data['High'].iloc[legin_candle_index]):
@@ -369,7 +369,7 @@ def find_patterns(ticker, stock_data,stock_data_htf, interval, max_base_candles,
                                     if last_legout_low_value is not None:
                                         actual_legout_candle_range = abs(last_legout_low_value - stock_data['Close'].iloc[i - 1])
 
-                                        if (legin_candle_range >= 1.5 * actual_base_candle_range and 
+                                        if (legin_candle_range >= 2 * actual_base_candle_range and 
                                             actual_legout_candle_range >= 2 * legin_candle_range and
                                             stock_data['High'].iloc[i] <= stock_data['High'].iloc[legin_candle_index]):
                 
@@ -483,7 +483,7 @@ def find_patterns(ticker, stock_data,stock_data_htf, interval, max_base_candles,
         return []
 
 # Initialize TvDatafeed with your TradingView credentials
-tv = TvDatafeed('AKTradingWithSL', 'bulky@001122')
+tv = TvDatafeed('AKTradingWithSL', 'Bulky@001122')
 
 st.markdown(f"<h3 style=\"text-align: center;\"> 😊 Welcome to demand - supply daily zone scan engine </h1>", unsafe_allow_html=True)
 
