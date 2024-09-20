@@ -609,10 +609,9 @@ with st.form(key='my_form'):
         
         # Refresh after the selected interval
         time.sleep(refresh_time)
-else:
-    patterns_found = find_patterns(...)
-    st.dataframe(patterns_found)
-
+    else:
+        patterns_found = find_patterns(...)
+        st.dataframe(patterns_found)
 
 
 
