@@ -528,6 +528,8 @@ with st.form(key='my_form'):
     default_intervals = ['1 Minute', '3 Minutes', '5 Minutes', '15 Minutes', '30 Minutes', '1 Hour', '2 Hours', '1 Day', '1 Week']
     # Multi-select for intervals with all options as default
     selected_intervals = st.multiselect('Select Time Intervals', list(interval_options.keys()), default=default_intervals)
+    refresh_time = min([refresh_period[interval] for interval in selected_intervals])
+
 
     # Retrieve the corresponding interval objects
     intervals = [interval_options[interval] for interval in selected_intervals]
