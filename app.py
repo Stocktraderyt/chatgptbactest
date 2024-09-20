@@ -599,7 +599,20 @@ with st.form(key='my_form'):
     with zone_type_checks[1]:
         scan_supply_zone_allowed = st.checkbox("Scan Supply")
         
-    find_patterns_button = st.form_submit_button(label='🔍 Scan Now')
+    if auto_refresh:
+    st.write(f"Auto-refresh enabled for every {refresh_time / 60:.0f} minutes.")
+    
+    while True:
+        # Fetch stock data and scan zones
+        patterns_found = find_patterns(...)
+        st.dataframe(patterns_found)
+        
+        # Refresh after selected interval
+        time.sleep(refresh_time)
+else:
+    patterns_found = find_patterns(...)
+    st.dataframe(patterns_found)
+
 
 all_patterns = []
 
