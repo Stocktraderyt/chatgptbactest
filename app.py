@@ -599,7 +599,7 @@ with st.form(key='my_form'):
     with zone_type_checks[1]:
         scan_supply_zone_allowed = st.checkbox("Scan Supply")
         
-    if auto_refresh:
+if auto_refresh:
     st.write(f"Auto-refresh enabled for every {refresh_time / 60:.0f} minutes.")
     
     while True:
