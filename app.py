@@ -528,7 +528,27 @@ with st.form(key='my_form'):
     default_intervals = ['1 Minute', '3 Minutes', '5 Minutes', '15 Minutes', '30 Minutes', '1 Hour', '2 Hours', '1 Day', '1 Week']
     # Multi-select for intervals with all options as default
     selected_intervals = st.multiselect('Select Time Intervals', list(interval_options.keys()), default=default_intervals)
-    refresh_time = min([refresh_period[interval] for interval in selected_intervals])
+    # Define refresh periods before the form
+refresh_period = {
+    '1 Minute': 60,
+    '3 Minutes': 180,
+    '5 Minutes': 300,
+    '15 Minutes': 900,
+    '30 Minutes': 1800,
+    '1 Hour': 3600,
+    '2 Hours': 7200
+}
+
+with st.form(key='auto_refresh_form'):
+    selected_intervals = st.multiselect('Select Time Intervals', list(interval_options.keys()), default=default_intervals)
+    
+    # Add a submit button
+    submit_button = st.form_submit_button(label='Submit')
+    
+    if submit_button:
+        refresh_time = min([refresh_period[interval] for interval in selected_intervals])
+        st.write(f"Auto-refresh enabled for every {refresh_time / 60:.0f} minutes.")
+
 
 
     # Retrieve the corresponding interval objects
