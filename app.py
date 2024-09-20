@@ -600,7 +600,7 @@ with st.form(key='my_form'):
         scan_supply_zone_allowed = st.checkbox("Scan Supply")
         
     if auto_refresh:
-    st.write(f"Auto-refresh enabled for every {refresh_time / 60:.0f} minutes.")
+       st.write(f"Auto-refresh enabled for every {refresh_time / 60:.0f} minutes.")
     
     while True:
         # Fetch stock data and scan zones
