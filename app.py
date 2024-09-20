@@ -607,11 +607,12 @@ if auto_refresh:
         patterns_found = find_patterns(...)
         st.dataframe(patterns_found)
         
-        # Refresh after selected interval
+        # Refresh after the selected interval
         time.sleep(refresh_time)
 else:
     patterns_found = find_patterns(...)
     st.dataframe(patterns_found)
+
 
 
 all_patterns = []
